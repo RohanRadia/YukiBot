@@ -5,7 +5,8 @@ from discord.ext import commands
 
 # All the cogs that are to be loaded on launch
 cogs = ['cogs.owners',
-        'cogs.moderation']
+        'cogs.moderation',
+        'cogs.info']
 
 # Open the config.ini file and get bot information
 config = configparser.ConfigParser()
@@ -14,6 +15,7 @@ config.read('config.ini')
 
 class Yuki(commands.Bot):
     def __init__(self):
+        self.lime = 0x04ff00
         super().__init__(command_prefix = '?', # Needs to be changed to allow for database setup, simply a holder ATM
                          description = 'Description Here!')
 
