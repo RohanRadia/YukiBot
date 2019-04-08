@@ -1,8 +1,15 @@
+import configparser
+
 from datetime import datetime
 from discord.ext import commands
 
+# All the cogs that are to be loaded on launch
 cogs = ['cogs.owners',
         'cogs.moderation']
+
+# Open the config.ini file and get bot information
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 
 class Yuki(commands.Bot):
@@ -25,7 +32,7 @@ class Yuki(commands.Bot):
               f'{self.user.id}\n'
               '---------------------------------')
     def run(self):
-        super().run('TOKEN HERE', reconnect=True) # We can make use of either the DB or configparser for token
+        super().run(config['BOT']['TOKEN'], reconnect=True) # We can make use of either the DB or configparser for token
 
 
 if __name__ == '__main__':
