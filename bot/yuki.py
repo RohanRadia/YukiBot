@@ -2,6 +2,7 @@ import configparser
 
 from datetime import datetime
 from discord.ext import commands
+from pathlib import Path
 
 # All the cogs that are to be loaded on launch
 cogs = ['cogs.owners',
@@ -11,7 +12,7 @@ cogs = ['cogs.owners',
 
 # Open the config.ini file and get bot information
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(Path('bot', 'config.ini'))
 
 
 class Yuki(commands.Bot):
