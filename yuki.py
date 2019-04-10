@@ -6,11 +6,8 @@ from discord.ext import commands
 # All the cogs that are to be loaded on launch
 cogs = ['cogs.owners',
         'cogs.moderation',
-        'cogs.info']
-
-# Open the config.ini file and get bot information
-config = configparser.ConfigParser()
-config.read('config.ini')
+        'cogs.info',
+        'cogs.minigames']
 
 # Open the config.ini file and get bot information
 config = configparser.ConfigParser()
