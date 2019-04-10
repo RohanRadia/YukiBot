@@ -9,6 +9,7 @@ class Info(commands.Cog):
     @commands.command(aliases=('latency', 'pong'))
     async def ping(self, ctx):
         """Command to Retrieve Latency of Bot"""
+
         emb = discord.Embed(colour=self.bot.lime)
         emb.add_field(name='Latency', value=f'{round((self.bot.latency * 1000), 2)}')
 
