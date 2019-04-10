@@ -30,6 +30,7 @@ class Yuki(commands.Bot):
               f'{self.user.name}\n'
               f'{self.user.id}\n'
               '---------------------------------')
+
     def run(self):
         super().run(os.environ.get('TOKEN'), reconnect=True)
 
