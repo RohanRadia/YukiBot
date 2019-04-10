@@ -8,6 +8,7 @@ class Moderation(commands.Cog):
     @commands.command()
     async def testcommand1(self, ctx):
         """Holder Command To Be Over Written"""
+
         await ctx.send('Test Command 1')
 
 
