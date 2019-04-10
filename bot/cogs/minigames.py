@@ -4,7 +4,7 @@ import random
 from discord.ext import commands
 from pathlib import Path
 
-with open(Path('resources', '8ball.json'), 'r', encoding="utf8") as f:
+with open(Path('bot', 'resources', '8ball.json'), 'r', encoding="utf8") as f:
     eightBallJSON = json.load(f)
 
 
