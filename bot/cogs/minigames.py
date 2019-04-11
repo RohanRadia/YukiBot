@@ -1,9 +1,12 @@
 import json
+import logging
 import random
 from pathlib import Path
 
 from discord.ext import commands
 
+
+logger = logging.getLogger(__name__)
 
 with open(Path('bot', 'resources', '8ball.json'), 'r', encoding="utf8") as f:
     eightBallJSON = json.load(f)
@@ -22,6 +25,18 @@ class MiniGames(commands.Cog):
         else:
             await ctx.send(random.choice(eightBallJSON['answers']))
 
+    @commands.command(name='choice')
+    async def choices(self, ctx, options):
+        """
+        Having a hard time choosing between something?
+
+        Try this command!
+        """
+        choices = options.split('-')
+        choice = random.choice(choices)
+        await ctx.send(f'My choice is\"{choice}\"')
+
 
 def setup(bot):
     bot.add_cog(MiniGames(bot))
+    logger.info('MiniGames cog loaded.')
