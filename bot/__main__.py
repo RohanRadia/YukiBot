@@ -4,10 +4,10 @@ from datetime import datetime
 from discord.ext import commands
 
 # All the cogs that are to be loaded on launch
-cogs = ['cogs.owners',
-        'cogs.moderation',
-        'cogs.info',
-        'cogs.minigames']
+cogs = ['bot.cogs.owners',
+        'bot.cogs.moderation',
+        'bot.cogs.info',
+        'bot.cogs.minigames']
 
 
 class Yuki(commands.Bot):
