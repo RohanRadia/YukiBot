@@ -18,12 +18,12 @@ class Yuki(commands.Bot):
 
     async def on_ready(self):
         for cog in cogs:
-            # try:
-            self.load_extension(cog)
-            # except Exception as e:
-            #     print(f'Failed to load extension: {cog}\n{e}')
-            # else:
-            #     print(f'Loaded extension: {cog}')
+            try:
+                self.load_extension(cog)
+            except Exception as e:
+                print(f'Failed to load extension: {cog}\n{e}')
+            else:
+                print(f'Loaded extension: {cog}')
 
         print('---------------------------------\n'
               f'Client Logged in at {datetime.now()}\n'
