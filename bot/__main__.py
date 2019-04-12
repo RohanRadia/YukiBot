@@ -1,6 +1,6 @@
 import os
-
 from datetime import datetime
+
 from discord.ext import commands
 
 # All the cogs that are to be loaded on launch
@@ -13,8 +13,8 @@ cogs = ['bot.cogs.owners',
 class Yuki(commands.Bot):
     def __init__(self):
         self.lime = 0x04ff00
-        super().__init__(command_prefix = '?', # Needs to be changed to allow for database setup, simply a holder ATM
-                         description = 'Description Here!')
+        super().__init__(command_prefix='?',  # Needs to be changed to allow for database setup, simply a holder ATM
+                         description='Description Here!')
 
     async def on_ready(self):
         for cog in cogs:
