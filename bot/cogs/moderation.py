@@ -1,4 +1,9 @@
+import logging
+
 from discord.ext import commands
+
+
+logger = logging.getLogger(__name__)
 
 
 class Moderation(commands.Cog):
@@ -14,3 +19,4 @@ class Moderation(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
+    logger.info('Moderation cog loaded !')

@@ -9,3 +9,4 @@ venv.bak/
 
 __pycache__/
 .idea
+*.log
