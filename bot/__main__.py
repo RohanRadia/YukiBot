@@ -1,8 +1,11 @@
+import logging
 import os
 from datetime import datetime
 
 from discord.ext import commands
 
+
+logger = logging.getLogger(__name__)
 # All the cogs that are to be loaded on launch
 cogs = ['bot.cogs.owners',
         'bot.cogs.moderation',
@@ -21,15 +24,11 @@ class Yuki(commands.Bot):
             try:
                 self.load_extension(cog)
             except Exception as e:
-                print(f'Failed to load extension: {cog}\n{e}')
-            else:
-                print(f'Loaded extension: {cog}')
+                logger.error(f'Failed to load extension: {cog}\n{e}')
 
-        print('---------------------------------\n'
-              f'Client Logged in at {datetime.now()}\n'
-              f'{self.user.name}\n'
-              f'{self.user.id}\n'
-              '---------------------------------')
+        logger.info(f'Client Logged in at {datetime.now()}')
+        logger.info(f'{self.user.name}')
+        logger.info(f'{self.user.id}')
 
     def run(self):
         super().run(os.environ.get('TOKEN'), reconnect=True)

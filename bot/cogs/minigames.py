@@ -8,7 +8,7 @@ from discord.ext import commands
 
 logger = logging.getLogger(__name__)
 
-with open(Path('resources', '8ball.json'), 'r', encoding="utf8") as f:
+with open(Path('bot', 'resources', '8ball.json'), 'r', encoding="utf8") as f:
     eightBallJSON = json.load(f)
 
 
