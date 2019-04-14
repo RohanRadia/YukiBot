@@ -27,8 +27,8 @@ class Yuki(commands.Bot):
                 logger.error(f'Failed to load extension: {cog}\n{e}')
 
         logger.info(f'Client Logged in at {datetime.now()}')
-        logger.info(f'{self.user.name}')
-        logger.info(f'{self.user.id}')
+        logger.info(f'Logged in as : {self.user.name}')
+        logger.info(f'ID : {self.user.id}')
 
     def run(self):
         super().run(os.environ.get('TOKEN'), reconnect=True)

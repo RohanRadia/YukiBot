@@ -17,4 +17,4 @@ class Owners(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Owners(bot))
-    logging.info('Owners cog loaded !')
+    logger.info('Owners cog loaded !')
