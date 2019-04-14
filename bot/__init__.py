@@ -3,6 +3,9 @@ import os
 import pymysql.cursors
 from pathlib import Path
 
+# Silence irrelevant loggers
+logging.getLogger("discord").setLevel(logging.ERROR)
+logging.getLogger("websockets").setLevel(logging.ERROR)
 
 consoleLogger = logging.StreamHandler()
 logFilePath = Path('bot', 'logs', 'logging.log')
