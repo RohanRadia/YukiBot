@@ -5,6 +5,8 @@ from pathlib import Path
 
 from discord.ext import commands
 
+from bot import mysql_query
+
 
 logger = logging.getLogger(__name__)
 
@@ -25,16 +27,17 @@ class MiniGames(commands.Cog):
         else:
             await ctx.send(random.choice(eightBallJSON['answers']))
 
-    @commands.command(name='choice')
-    async def choices(self, ctx, options):
+    @commands.command(name='choice', aliases=['choices'])
+    async def choices(self, ctx, *, options):
         """
         Having a hard time choosing between something?
 
         Try this command!
+        syntax : <prefix>choice option1-option2-option3.....
         """
         choices = options.split('-')
         choice = random.choice(choices)
-        await ctx.send(f'My choice is\"{choice}\"')
+        await ctx.send(f'My choice is \"{choice}\"')
 
 
 def setup(bot):

@@ -1,5 +1,7 @@
+from aiohttp import AsyncResolver, ClientSession, TCPConnector
 import logging
 import os
+import socket
 from datetime import datetime
 
 from discord.ext import commands
@@ -16,10 +18,14 @@ cogs = ['bot.cogs.owners',
 class Yuki(commands.Bot):
     def __init__(self):
         self.lime = 0x04ff00
+
         super().__init__(command_prefix='?',  # Needs to be changed to allow for database setup, simply a holder ATM
                          description='Description Here!')
 
     async def on_ready(self):
+        self.http_session = ClientSession(
+            connector=TCPConnector(resolver=AsyncResolver(), family=socket.AF_INET)
+        )
         for cog in cogs:
             try:
                 self.load_extension(cog)
