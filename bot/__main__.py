@@ -1,5 +1,7 @@
 import logging
 import os
+import socket
+from aiohttp import AsyncResolver, ClientSession, TCPConnector
 from datetime import datetime
 
 from discord.ext import commands
@@ -20,6 +22,9 @@ class Yuki(commands.Bot):
                          description='Description Here!')
 
     async def on_ready(self):
+        self.http_session = ClientSession(
+            connector=TCPConnector(resolver=AsyncResolver(), family=socket.AF_INET)
+        )
         for cog in cogs:
             try:
                 self.load_extension(cog)

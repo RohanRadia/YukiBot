@@ -26,7 +26,7 @@ class MiniGames(commands.Cog):
             await ctx.send(random.choice(eightBallJSON['answers']))
 
     @commands.command(name='choice')
-    async def choices(self, ctx, options):
+    async def choices(self, ctx, *, options):
         """
         Having a hard time choosing between something?
 
