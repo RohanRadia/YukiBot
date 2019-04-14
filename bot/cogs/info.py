@@ -3,6 +3,7 @@ import logging
 import discord
 from discord.ext import commands
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -22,4 +23,4 @@ class Info(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Info(bot))
-    logger.info('info cog loaded!')
+    logger.info('Info cog loaded!')
