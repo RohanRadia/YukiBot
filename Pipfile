@@ -10,6 +10,7 @@ discord-py = {extras = ["voice"],git = "https://github.com/Rapptz/discord.py",re
 aiohttp = "*"
 flake8 = "*"
 aiodns = "*"
+aiomysql = "*"
 
 [requires]
 python_version = "3.7"
