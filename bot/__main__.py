@@ -6,19 +6,35 @@ from datetime import datetime
 
 from discord.ext import commands
 
+from bot import mysql_query, guild_ids, guild_prefixes
+
 
 logger = logging.getLogger(__name__)
+
+
+async def get_prefix(client, message):
+    try:
+        guild_id = message.guild.id
+        index = guild_ids.index(guild_id)
+        prefix = guild_prefixes[index]
+    except Exception as e:
+        prefix = "?"
+        logger.error(str(e))
+    return prefix
+
+
 # All the cogs that are to be loaded on launch
 cogs = ['bot.cogs.owners',
         'bot.cogs.moderation',
         'bot.cogs.info',
+        'bot.cogs.events',
         'bot.cogs.minigames']
 
 
 class Yuki(commands.Bot):
     def __init__(self):
         self.lime = 0x04ff00
-        super().__init__(command_prefix='?',  # Needs to be changed to allow for database setup, simply a holder ATM
+        super().__init__(command_prefix=get_prefix,  # Needs to be changed to allow for database setup, simply a holder ATM
                          description='Description Here!')
 
     async def on_ready(self):
